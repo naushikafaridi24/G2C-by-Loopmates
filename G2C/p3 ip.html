@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>G2C - Placement Prep</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&family=Poppins:wght@600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+<style>
+/* -------- Theme Toggle -------- */
+.theme-toggle {
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid #FFD700;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+.theme-icon {
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+/* Light mode (default) */
+:root {
+  --header-bg: linear-gradient(135deg, rgba(28, 96, 68, 0.95), rgba(212, 175, 55, 0.95));
+  --header-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  --nav-text: #000000;
+  --nav-hover-bg: rgba(255, 215, 0, 0.2);
+  --body-bg: linear-gradient(135deg, #f5f5dc 0%, #2b8d54 35%, #d4af37 70%, #f6c7d4 100%);
+  --welcome-text: #222;
+  --welcome-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+  --tagline-color: #000000;
+  --tagline-shadow: none;
+  --box-bg: linear-gradient(145deg,#1c6044,#0f3d2e);
+  --box-hover-bg: linear-gradient(145deg,#2b8d54,#0f3d2e);
+  --box-border: #d4af37;
+  --box-shadow: 0 8px 0 #0b2d20, 0 10px 20px rgba(0,0,0,0.5);
+  --box-hover-shadow: 0 12px 0 #0b2d20, 0 16px 25px rgba(0,0,0,0.7);
+  --dropdown-bg: #ffffff;
+  --dropdown-border: #d4af37;
+  --dropdown-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  --dropdown-text: #1c6044;
+  --dropdown-hover-bg: linear-gradient(145deg, #d4af37, #f4e68c);
+  --dropdown-hover-text: #0f3d2e;
+}
+
+/* Dark mode */
+body.dark-mode {
+  --header-bg: linear-gradient(135deg, rgba(15, 15, 15, 0.95), rgba(30, 30, 30, 0.95));
+  --header-shadow: 0 4px 20px rgba(0,0,0,0.6);
+  --nav-text: #e0e0e0;
+  --nav-hover-bg: rgba(255, 215, 0, 0.2);
+  --body-bg: linear-gradient(135deg, #1a1a1a 0%, #0f2027 35%, #203a43 70%, #2c5364 100%);
+  --welcome-text: #e0e0e0;
+  --welcome-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+  --tagline-color: #ffffff;
+  --tagline-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+  --box-bg: linear-gradient(145deg,#1f1f1f,#0a0a0a);
+  --box-hover-bg: linear-gradient(145deg,#333333,#1a1a1a);
+  --box-border: #FFD700;
+  --box-shadow: 0 8px 0 #0f0f0f, 0 10px 20px rgba(0,0,0,0.8);
+  --box-hover-shadow: 0 12px 0 #0f0f0f, 0 16px 25px rgba(0,0,0,0.9);
+  --dropdown-bg: #2a2a2a;
+  --dropdown-border: #FFD700;
+  --dropdown-shadow: 0 10px 25px rgba(0,0,0,0.7);
+  --dropdown-text: #e0e0e0;
+  --dropdown-hover-bg: linear-gradient(145deg, #FFD700, #f4e68c);
+  --dropdown-hover-text: #1a1a1a;
+}
+
+body.dark-mode .header {
+  border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+body.dark-mode .box:hover {
+  border-color: #fff;
+}
+
+body.dark-mode .nav-item:hover {
+  color: #FFD700;
+}
+
+/* -------- Header -------- */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--header-bg);
+  backdrop-filter: blur(10px);
+  padding: 15px 0;
+  box-shadow: var(--header-shadow);
+  z-index: 1000;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logo {
+  height: 50px;
+  width: auto;
+  filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
+}
+
+.nav-menu {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  color: var(--nav-text);
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 2px solid transparent;
+}
+
+.nav-item:hover {
+  background: var(--nav-hover-bg);
+  border-color: #FFD700;
+  transform: translateY(-2px);
+}
+
+/* -------- Page -------- */
+body{
+  margin:0;
+  padding:80px 0 0 0;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background: var(--body-bg);
+  background-size:400% 400%;
+  animation: gradientMove 12s ease infinite;
+  font-family:'Poppins', sans-serif;
+  transition: all 0.5s ease;
+}
+
+@keyframes gradientMove {
+  0% {background-position:0% 50%;}
+  50% {background-position:100% 50%;}
+  100% {background-position:0% 50%;}
+}
+
+.container{
+  text-align:center;
+  padding:30px 15px;
+  max-width:1100px;
+  width:95%;
+}
+
+.welcome{
+  font-family:'Playfair Display', serif;
+  font-style:italic;
+  font-size:1.4rem;
+  margin-bottom:12px;
+  color: var(--welcome-text);
+  text-shadow: var(--welcome-shadow);
+}
+
+/* -------- Boxes Grid -------- */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  grid-gap:35px;
+  justify-items:center;
+  position:relative;
+}
+
+.middle-box{
+  grid-column:span 2;
+  justify-self:center;
+}
+
+.box{
+  background: var(--box-bg);
+  border:3px solid var(--box-border);
+  border-radius:20px;
+  width:260px;
+  padding:30px 20px;
+  color:#FFD700;
+  font-size:1.3rem;
+  font-weight:bold;
+  text-align:center;
+  cursor:pointer;
+  transition:all .3s ease;
+  box-shadow: var(--box-shadow);
+  text-shadow:2px 2px 6px rgba(0,0,0,0.7);
+  font-family:'Poppins', sans-serif;
+  position: relative;
+}
+
+.box:hover{
+  transform:translateY(-6px) scale(1.05);
+  box-shadow: var(--box-hover-shadow);
+  background: var(--box-hover-bg);
+}
+
+/* -------- Dropdown Styles -------- */
+.dropdown {
+  position: absolute;
+  top: 100%;
+  background: var(--dropdown-bg);
+  border: 2px solid var(--dropdown-border);
+  border-radius: 15px;
+  box-shadow: var(--dropdown-shadow);
+  padding: 15px;
+  min-width: 220px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 100;
+  margin-top: 10px;
+}
+
+/* Position dropdowns based on box position */
+.box:nth-child(1) .dropdown { left: 0; }
+.box:nth-child(2) .dropdown { right: 0; }
+.box:nth-child(3) .dropdown { left: 50%; transform: translateX(-50%) translateY(-10px); }
+.box:nth-child(4) .dropdown { left: 0; }
+.box:nth-child(5) .dropdown { right: 0; }
+
+.box:hover .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.box:nth-child(3):hover .dropdown {
+  transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-item {
+  display: block;
+  padding: 10px 15px;
+  color: var(--dropdown-text);
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  margin: 3px 0;
+  text-align: left;
+}
+
+.dropdown-item:hover {
+  background: var(--dropdown-hover-bg);
+  color: var(--dropdown-hover-text);
+  transform: translateX(5px);
+}
+
+@media(max-width:700px){
+  .grid{grid-template-columns:1fr;}
+  .middle-box{grid-column:auto;}
+  
+  .header-content {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .nav-menu {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .nav-item {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+  
+  .theme-toggle {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .theme-icon {
+    font-size: 16px;
+  }
+  
+  body {
+    padding-top: 120px;
+  }
+  
+  .theme-toggle {
+    top: 120px;
+    right: 15px;
+    transform: none;
+    width: 50px;
+    height: 50px;
+  }
+  
+  .theme-icon {
+    font-size: 20px;
+  }
+  
+  .dropdown {
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) translateY(-10px) !important;
+  }
+  
+  .box:hover .dropdown {
+    transform: translateX(-50%) translateY(0) !important;
+  }
+}
+</style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <img src="C:\Users\tubaa\Documents\bg.html.png" alt="G2C Logo" class="logo">
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="#" class="nav-item">Home</a></li>
+          <li><a href="#" class="nav-item">About</a></li>
+          <li><a href="#" class="nav-item">Resources</a></li>
+          <li><a href="#" class="nav-item">Mock Tests</a></li>
+          <li><a href="#" class="nav-item">Contact</a></li>
+          <li><a href="#" class="nav-item">Logout</a></li>
+          <li>
+            <div class="theme-toggle" onclick="toggleTheme()">
+              <span class="theme-icon" id="themeIcon">🌙</span>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="welcome">Hey future engineer, Welcome to G2C</div>
+    <!-- Tagline -->
+    <h1 id="tagline" style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 43px; color: var(--tagline-color); letter-spacing: 0.5px; margin-bottom:50px; text-shadow: var(--tagline-shadow);">
+      Your Smart Placement Preparation Partner!!
+    </h1>
+    <div class="grid">
+      <div class="box">
+        APTITUDE QUESTIONS
+        <div class="dropdown">
+          <a href="#" class="dropdown-item">Service Based Companies</a>
+          <a href="#" class="dropdown-item">Product Based Companies</a>
+          <a href="#" class="dropdown-item">Fintech Companies</a>
+        </div>
+      </div>
+      
+      <div class="box">
+        GD PREPARATION
+        <div class="dropdown">
+          <a href="#" class="dropdown-item">Sample Questions</a>
+          <a href="#" class="dropdown-item">Prepare with Friends</a>
+        </div>
+      </div>
+      
+      <div class="box middle-box">
+        QUIZES
+        <div class="dropdown">
+          <a href="#" class="dropdown-item">Technical Quiz</a>
+          <a href="#" class="dropdown-item">Aptitude Quiz</a>
+          <a href="#" class="dropdown-item">General Knowledge</a>
+        </div>
+      </div>
+      
+      <div class="box">
+        TECHNICAL QUESTIONS
+        <div class="dropdown">
+          <a href="#" class="dropdown-item">Service Based Companies</a>
+          <a href="#" class="dropdown-item">Product Based Companies</a>
+          <a href="#" class="dropdown-item">Fintech Companies</a>
+        </div>
+      </div>
+      
+      <div class="box">
+        HR ROUND
+        <div class="dropdown">
+          <a href="#" class="dropdown-item">Sample Questions</a>
+          <a href="#" class="dropdown-item">Prepare Individually with AI</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      const themeIcon = document.getElementById('themeIcon');
+      
+      body.classList.toggle('dark-mode');
+      
+      // Change icon based on current theme
+      if (body.classList.contains('dark-mode')) {
+        themeIcon.textContent = '☀️'; // Sun icon for dark mode
+      } else {
+        themeIcon.textContent = '🌙'; // Moon icon for light mode
+      }
+      
+      // Save preference in localStorage
+      if (body.classList.contains('dark-mode')) {
+        localStorage.setItem('theme', 'dark');
+      } else {
+        localStorage.setItem('theme', 'light');
+      }
+    }
+    
+    // Load saved theme preference
+    window.addEventListener('load', function() {
+      const savedTheme = localStorage.getItem('theme');
+      const body = document.body;
+      const themeIcon = document.getElementById('themeIcon');
+      
+      if (savedTheme === 'dark') {
+        body.classList.add('dark-mode');
+        themeIcon.textContent = '☀️';
+      } else {
+        themeIcon.textContent = '🌙';
+      }
+    });
+  </script>
+</body>
+</html>
